@@ -1,0 +1,247 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Variáveis de tema claro (padrão) */
+:root {
+  --color-primary: #3B82F6;
+  --color-secondary: #10B981;
+  --color-background: #F9FAFB;
+  --color-surface: #FFFFFF;
+  --color-surface-secondary: #F3F4F6;
+  --color-text: #1F2937;
+  --color-text-secondary: #4B5563;
+  --color-border: #E5E7EB;
+  --color-input: #FFFFFF;
+  --color-input-border: #D1D5DB;
+  --color-success: #10B981;
+  --color-error: #EF4444;
+  --color-warning: #F59E0B;
+  --color-info: #6366F1;
+}
+
+/* Tema escuro */
+[data-theme="dark"] {
+  --color-primary: #60A5FA;
+  --color-secondary: #34D399;
+  --color-background: #111827;
+  --color-surface: #1F2937;
+  --color-surface-secondary: #374151;
+  --color-text: #F9FAFB;
+  --color-text-secondary: #D1D5DB;
+  --color-border: #374151;
+  --color-input: #374151;
+  --color-input-border: #4B5563;
+  --color-success: #34D399;
+  --color-error: #F87171;
+  --color-warning: #FBBF24;
+  --color-info: #818CF8;
+}
+
+/* Tema do sistema */
+@media (prefers-color-scheme: dark) {
+  [data-theme="system"] {
+    --color-primary: #60A5FA;
+    --color-secondary: #34D399;
+    --color-background: #111827;
+    --color-surface: #1F2937;
+    --color-surface-secondary: #374151;
+    --color-text: #F9FAFB;
+    --color-text-secondary: #D1D5DB;
+    --color-border: #374151;
+    --color-input: #374151;
+    --color-input-border: #4B5563;
+    --color-success: #34D399;
+    --color-error: #F87171;
+    --color-warning: #FBBF24;
+    --color-info: #818CF8;
+  }
+}
+
+/* Aplicação das variáveis */
+body {
+  background-color: var(--color-background);
+  color: var(--color-text);
+  transition: all 0.3s ease;
+}
+
+/* Classes utilitárias */
+.bg-white,
+.bg-surface {
+  background-color: var(--color-surface) !important;
+}
+
+.bg-gray-50,
+.bg-gray-100 {
+  background-color: var(--color-surface-secondary) !important;
+}
+
+/* Textos */
+.text-gray-900,
+.text-black {
+  color: var(--color-text) !important;
+}
+
+.text-gray-800 {
+  color: var(--color-text) !important;
+  opacity: 0.9;
+}
+
+.text-gray-700 {
+  color: var(--color-text) !important;
+  opacity: 0.8;
+}
+
+.text-gray-600 {
+  color: var(--color-text-secondary) !important;
+  opacity: 0.9;
+}
+
+.text-gray-500 {
+  color: var(--color-text-secondary) !important;
+}
+
+.text-gray-400 {
+  color: var(--color-text-secondary) !important;
+  opacity: 0.7;
+}
+
+/* Bordas */
+.border,
+.border-gray-200,
+.border-gray-300 {
+  border-color: var(--color-border) !important;
+}
+
+.border-gray-100 {
+  border-color: var(--color-border) !important;
+  opacity: 0.5;
+}
+
+/* Cores de status */
+.text-green-600 {
+  color: var(--color-success) !important;
+}
+
+.text-red-600 {
+  color: var(--color-error) !important;
+}
+
+.text-yellow-600 {
+  color: var(--color-warning) !important;
+}
+
+.text-blue-600 {
+  color: var(--color-info) !important;
+}
+
+.bg-green-50 {
+  background-color: color-mix(in srgb, var(--color-success) 10%, transparent) !important;
+}
+
+.bg-red-50 {
+  background-color: color-mix(in srgb, var(--color-error) 10%, transparent) !important;
+}
+
+.bg-yellow-50 {
+  background-color: color-mix(in srgb, var(--color-warning) 10%, transparent) !important;
+}
+
+.bg-blue-50 {
+  background-color: color-mix(in srgb, var(--color-info) 10%, transparent) !important;
+}
+
+/* Inputs e Selects */
+input,
+select,
+textarea {
+  background-color: var(--color-input) !important;
+  border-color: var(--color-input-border) !important;
+  color: var(--color-text) !important;
+}
+
+input::placeholder,
+select::placeholder,
+textarea::placeholder {
+  color: var(--color-text-secondary) !important;
+  opacity: 0.7;
+}
+
+/* Hover states */
+.hover\:bg-gray-50:hover {
+  background-color: var(--color-surface-secondary) !important;
+  opacity: 0.8;
+}
+
+.hover\:bg-gray-100:hover {
+  background-color: var(--color-surface-secondary) !important;
+}
+
+/* Focus states */
+.focus\:ring-blue-500:focus {
+  --tw-ring-color: var(--color-primary) !important;
+}
+
+.focus\:border-blue-500:focus {
+  border-color: var(--color-primary) !important;
+}
+
+/* Dashboard específico */
+.dashboard-card {
+  background-color: var(--color-surface);
+  border-color: var(--color-border);
+}
+
+.dashboard-stat {
+  color: var(--color-text);
+}
+
+.dashboard-stat-label {
+  color: var(--color-text-secondary);
+}
+
+.dashboard-chart {
+  background-color: var(--color-surface);
+}
+
+.recharts-text {
+  fill: var(--color-text-secondary) !important;
+}
+
+.recharts-cartesian-grid line {
+  stroke: var(--color-border) !important;
+}
+
+.recharts-tooltip-wrapper {
+  background-color: var(--color-surface) !important;
+  border-color: var(--color-border) !important;
+  color: var(--color-text) !important;
+}
+
+/* Transições */
+*,
+*::before,
+*::after {
+  transition-property: background-color, border-color, color, fill, stroke;
+  transition-timing-function: cubic-bezier(0.4, 0, 0.2, 1);
+  transition-duration: 150ms;
+}
+
+/* Scrollbar personalizada */
+::-webkit-scrollbar {
+  width: 8px;
+  height: 8px;
+}
+
+::-webkit-scrollbar-track {
+  background: var(--color-surface-secondary);
+}
+
+::-webkit-scrollbar-thumb {
+  background: var(--color-border);
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: var(--color-text-secondary);
+}
